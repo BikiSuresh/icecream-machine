@@ -1,0 +1,160 @@
+{
+  "_version": "1.49.0",
+  "sap.app": {
+    "_version": "1.1.0",
+    "id": "sap.ui.custom.icecreammachine",
+    "type": "application",
+    "i18n": {
+      "bundleUrl": "i18n/i18n.properties",
+      "supportedLocales": [
+        ""
+      ],
+      "fallbackLocale": ""
+    },
+    "applicationVersion": {
+      "version": "1.0.0"
+    },
+    "title": "{{title}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json"
+  },
+  "sap.ui": {
+    "_version": "1.1.0",
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    },
+    "supportedThemes": [
+      "sap_hcb",
+      "sap_hcw",
+      "sap_belize"
+    ]
+  },
+  "sap.ui5": {
+    "_version": "1.1.0",
+    "dependencies": {
+      "minUI5Version": "1.113.0",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.ui.layout": {},
+        "sap.ui.commons": {},
+        "sap.suite.ui.microchart": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "sap.ui.custom.icecreammachine.i18n.i18n"
+        }
+      },
+      "process": {
+        "type": "sap.ui.model.json.JSONModel",
+        "uri": "model/data/ProcessFlow.json"
+      },
+      "business": {
+        "type": "sap.ui.model.json.JSONModel",
+        "uri": "model/data/BusinessData.json"
+      },
+      "suppliers": {
+        "type": "sap.ui.model.json.JSONModel",
+        "uri": "model/data/Suppliers.json"
+      },
+      "reviews": {
+        "type": "sap.ui.model.json.JSONModel",
+        "uri": "model/data/Reviews.json"
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "viewType": "XML",
+        "async": true,
+        "viewPath": "sap.ui.custom.icecreammachine.view",
+        "controlAggregation": "pages",
+        "transition": "slide",
+        "controlId": "app",
+        "bypassed": {
+          "target": [
+            "startpage"
+          ]
+        }
+      },
+      "routes": [
+        {
+          "name": "home",
+          "pattern": "",
+          "target": "startpage"
+        },
+        {
+          "name": "processFlow",
+          "pattern": "processFlow",
+          "target": "processFlow"
+        },
+        {
+          "name": "chartContainer",
+          "pattern": "chartContainer",
+          "target": "chartContainer"
+        },
+        {
+          "name": "reviews",
+          "pattern": "reviews",
+          "target": "reviews"
+        }
+      ],
+      "targets": {
+        "startpage": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "Startpage",
+          "viewName": "Startpage",
+          "viewLevel": 0
+        },
+        "processFlow": {
+          "viewName": "ProcessFlow",
+          "viewType": "XML",
+          "viewLevel": 1
+        },
+        "chartContainer": {
+          "viewName": "ChartContainer",
+          "viewType": "XML",
+          "viewLevel": 1
+        },
+        "reviews": {
+          "viewName": "Reviews",
+          "viewType": "XML",
+          "viewLevel": 1
+        }
+      }
+    },
+    "rootView": {
+      "viewName": "sap.ui.custom.icecreammachine.view.App",
+      "type": "XML",
+      "async": true,
+      "id": "App"
+    }
+  }
+}
